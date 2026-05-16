@@ -1,7 +1,8 @@
 import s from "./TaskForm.module.css";
 import { useDispatch } from "react-redux";
-import { addTask } from "../../redux/actions"
+import { addTask } from "../../redux/operations"
 import Button from "../Button/Button";
+
 
 const TaskForm = () => {
     const dispatch = useDispatch();
@@ -9,8 +10,10 @@ const TaskForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const form = e.target;
-        const text = form.elements.text.value.trim();
-        dispatch(addTask(form.elements.text.value.trim())); 
+      const text = form.elements.text.value.trim();
+      console.log(text);
+      
+        dispatch(addTask(text)); 
         form.reset();   
     }
 

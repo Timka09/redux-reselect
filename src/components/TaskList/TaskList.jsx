@@ -5,7 +5,7 @@ import { getTask } from "../../redux/selectors";
 
 const TaskList = () => {
   const tasks = useSelector(getTask);
-  console.log(tasks);
+  // console.log(tasks);
 
   return (
     <ul className={styles.list}>

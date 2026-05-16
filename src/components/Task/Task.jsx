@@ -1,19 +1,19 @@
 import s from "./Task.module.css";
 import { useDispatch } from "react-redux";
-import { toggleCompleted, deleteTask } from "../../redux/actions";
+import { updateTask, deleteTask } from "../../redux/operations";
 import { MdClose } from "react-icons/md";
 
 const Task = ({ task }) => {
   const dispatch = useDispatch();
 
   const handleToggle = () => {
-    dispatch(toggleCompleted(task.id));
+    dispatch(updateTask(task));
   };
 
   const handleDelete = () => {
     dispatch(deleteTask(task.id));
   };
-console.log(task);
+// console.log(task);
 
   return (
     <div className={s.wrapper}>
@@ -23,7 +23,7 @@ console.log(task);
         checked={task.completed}
         onChange={handleToggle}
       />
-      <p className={s.text}>{task.text}</p>
+      <p className={s.text}>{task.name}</p>
       <button className={s.button} onClick={handleDelete}>
         <MdClose size={24} />
       </button>
